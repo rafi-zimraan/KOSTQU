@@ -16,6 +16,11 @@ export default function ButtonAction({
   backgroundColor = 'rgb(0,93,255)',
   loading = false,
   iconLeft,
+  borderRadius,
+  width,
+  borderColor,
+  color,
+  borderWidth,
   iconRight,
 }) {
   return (
@@ -23,14 +28,22 @@ export default function ButtonAction({
       useForeground
       onPress={onPress}
       disabled={disabled}>
-      <View style={{...styles.container, backgroundColor}}>
+      <View
+        style={{
+          ...styles.container,
+          width,
+          backgroundColor,
+          borderRadius,
+          borderColor,
+          borderWidth,
+        }}>
         {loading ? (
           <ActivityIndicator size={'small'} color={'white'} />
         ) : (
           <View style={styles.titleView}>
             {iconLeft && <Icon name={iconLeft} color={'white'} size={22} />}
             <Text
-              style={styles.TextTitle}
+              style={{...styles.TextTitle, color}}
               adjustsFontSizeToFit
               allowFontScaling>
               {title}
@@ -65,5 +78,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     alignSelf: 'center',
+    borderColor: colors.white,
+    borderWidth: 1,
   },
 });

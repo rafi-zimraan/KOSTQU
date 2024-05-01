@@ -32,13 +32,14 @@ export default function OnBoarding({navigation, route}) {
           {step == 1 && (
             <View style={styles.bannerWrapper}>
               <Image source={images.banner_onboarding1} style={styles.banner} />
-              <Gap height={30} />
+              {/* <Gap height={30} /> */}
               <View style={styles.contentViewText}>
-                <Gap height={50} />
+                <Gap height={15} />
                 <View style={{alignSelf: 'center'}}>
                   <Text style={styles.textTitle}>
                     Boking Kost Idaman {'\n'}Kamu Sekarang
                   </Text>
+                  <Gap height={5} />
                   <Text style={styles.textDesc}>
                     Kamu bisa boking kost idamanmu{'\n'}
                     kapanpun dan dimanapun yang{'\n'}
@@ -53,15 +54,17 @@ export default function OnBoarding({navigation, route}) {
             <View style={styles.bannerWrapper}>
               <Image source={images.banner_onboarding2} style={styles.banner} />
               <View style={styles.contentViewText}>
-                <Gap height={50} />
+                {/* <Gap height={50} /> */}
                 <View style={{alignSelf: 'center'}}>
+                  <Gap height={15} />
                   <Text style={styles.textTitle}>
                     Temukan Kost {'\n'}Impian Anda !
                   </Text>
-                  <Gap height={10} />
+                  <Gap height={5} />
                   <Text style={styles.textDesc}>
-                    Jelajahi berbagai pilihan Kost{'\n'}berbagai lokasi, dari
-                    pusat kota hingga sekitar kampus.
+                    Jelajahi berbagai pilihan Kost{'\n'}
+                    berbagai lokasi, dari pusat kota{'\n'}
+                    hingga sekitar kampus.
                   </Text>
                 </View>
               </View>
@@ -141,7 +144,7 @@ const styles = StyleSheet.create({
     marginTop: 50,
   },
   banner: {
-    height: 334,
+    height: 339,
     width: '100%',
     resizeMode: 'contain',
   },
@@ -151,16 +154,19 @@ const styles = StyleSheet.create({
     width: '100%',
     borderTopRightRadius: 45,
     borderTopLeftRadius: 45,
+    padding: 10,
   },
   paginationWrapper: {
     alignItems: 'center',
     padding: 10,
+    bottom: 15,
   },
   paginationItem: {
     height: 5,
     width: 50,
     borderRadius: 100,
     backgroundColor: 'rgba(0, 0, 255, 0.5)',
+    top: 20,
   },
   paginationSubItem: {
     height: 5,

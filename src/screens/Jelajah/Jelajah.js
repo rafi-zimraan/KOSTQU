@@ -1,10 +1,10 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 
-export default function SuperAdmin() {
+export default function Jelajah() {
   return (
     <View>
-      <Text>index</Text>
+      <Text>Jelajah</Text>
     </View>
   );
 }

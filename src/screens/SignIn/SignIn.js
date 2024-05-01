@@ -4,7 +4,7 @@ import {
   Image,
   KeyboardAvoidingView,
   Platform,
-  SafeAreaView,
+  ScrollView,
   StyleSheet,
   Text,
   TouchableNativeFeedback,
@@ -24,24 +24,41 @@ export default function SignIn({navigation}) {
   const [loading, setLoading] = useState(false);
 
   const onSubmit = data => {
-    // Tambahkan logika autentikasi di sini
+    // Simulasikan proses autentikasi di sini
+    // Anda dapat mengganti bagian ini dengan autentikasi sesungguhnya
+    const {email, password} = data;
+
+    // Contoh: validasi autentikasi
+    if (email === 'admin@example.com' && password === 'admin') {
+      navigation.navigate('BottomTabAdmin');
+    } else if (
+      email === 'superadmin@example.com' &&
+      password === 'superadmin'
+    ) {
+      navigation.navigate('BottomTabSuperAdmin');
+    } else {
+      navigation.navigate('MainNavigator');
+    }
+
     console.log(data);
   };
-
   return (
-    <SafeAreaView style={styles.container}>
-      <KeyboardAvoidingView
-        style={{flex: 1}}
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
+    <KeyboardAvoidingView
+      style={styles.container}
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
+      <ScrollView
+        stickyHeaderIndices={[0]}
+        stickyHeaderHiddenOnScroll
+        style={{padding: 10}}>
         {/* Image  */}
         <Image source={images.Img_signIn} style={styles.logo} />
         {/* Text Title Login Page */}
         <View style={styles.contentText}>
+          <Gap height={5} />
           <Text style={styles.title}>Login</Text>
           <Text style={styles.textDesc}>Silakan isi input di bawah ini</Text>
         </View>
-
-        <Gap height={15} />
+        <Gap height={5} />
         {/* TextInput */}
         <View style={styles.body}>
           <FormInput
@@ -66,6 +83,9 @@ export default function SignIn({navigation}) {
         <ButtonAction
           title={loading ? 'Loading..' : 'Login'}
           onPress={handleSubmit(onSubmit)}
+          width={'80%'}
+          borderRadius={50 / 2}
+          color={colors.white}
         />
 
         <Gap height={10} />
@@ -76,7 +96,7 @@ export default function SignIn({navigation}) {
           <Text style={styles.textForgotPassword}>Lupa kata sandi?</Text>
         </TouchableNativeFeedback>
 
-        <Gap height={40} />
+        <Gap height={30} />
         {/* Text Register */}
         <Text style={styles.text}>
           Tidak punya akun?{' '}
@@ -92,8 +112,10 @@ export default function SignIn({navigation}) {
             </Text>
           </TouchableNativeFeedback>
         </Text>
-      </KeyboardAvoidingView>
-    </SafeAreaView>
+
+        <Gap height={40} />
+      </ScrollView>
+    </KeyboardAvoidingView>
   );
 }
 
@@ -106,7 +128,7 @@ const styles = StyleSheet.create({
   },
   textDesc: {
     fontFamily: fonts.PoppinsRegular,
-    color: colors.grey,
+    color: colors.gray,
     fontSize: 20,
     textAlign: 'left',
   },
@@ -136,8 +158,8 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   logo: {
-    height: 380,
+    height: 340,
     width: '100%',
-    alignSelf: 'center',
+    alignItems: 'center',
   },
 });

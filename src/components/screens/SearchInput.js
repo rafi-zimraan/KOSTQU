@@ -2,32 +2,32 @@ import React from 'react';
 import {StyleSheet, TextInput, View} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {Gap} from '..';
-import {colors} from '../../utils/colors';
+import {colors} from '../../utils';
 
-const SearchInput = () => {
+export default function SearchInput({
+  style,
+  backgroundColor,
+  placeholderTextColor,
+  borderRadius,
+}) {
   return (
-    <View style={styles.containerSearchBar}>
+    <View style={[styles.containerSearchBar, {borderRadius, backgroundColor}]}>
       <Icon name={'magnify'} color={'black'} size={30} />
       <Gap height={3} />
       <TextInput
-        placeholder="Cari sesuatu"
-        placeholderTextColor={'grey'}
-        style={{flex: 1}}
+        placeholder="Cari kos kosan seru"
+        placeholderTextColor={placeholderTextColor}
+        style={style}
       />
     </View>
   );
-};
-
-export default SearchInput;
+}
 
 const styles = StyleSheet.create({
   containerSearchBar: {
-    background: colors.white,
+    backgroundColor: colors.white,
     flexDirection: 'row',
     elevation: 3,
-    flexDirection: 'row',
     alignItems: 'center',
-    marginHorizontal: 15,
-    borderRadius: 25,
   },
 });
