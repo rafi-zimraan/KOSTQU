@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle={'light-content'} backgroundColor={'#131150'} />
-      <Gap height={39} />
+      <Gap height={35} />
       <ScrollView stickyHeaderIndices={[0]} stickyHeaderHiddenOnScroll>
         <HeaderHome />
         <Gap height={10} />

@@ -60,7 +60,7 @@ export default function DataHome() {
       {/* Button Pencarian kos terdekat */}
       <ButtonAction
         title={laoding ? 'Loading..' : 'Kos Dekat Saya'}
-        width={348}
+        width={328}
         backgroundColor={colors.Gold}
         borderRadius={6}
         color={colors.white}
@@ -121,7 +121,7 @@ export default function DataHome() {
         backgroundColor={colors.white}
         borderRadius={6}
         borderColor={colors.Gold}
-        width={348}
+        width={328}
         borderWidth={1}
         color={colors.Gold}
       />
@@ -539,7 +539,7 @@ const styles = StyleSheet.create({
     padding: 16,
   },
   BannerPremium: {
-    width: 348,
-    height: 166,
+    width: 328,
+    height: 156,
   },
 });

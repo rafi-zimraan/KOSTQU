@@ -15,21 +15,6 @@ export default function LibDemo({
   onPressIconBell,
   onPressIconMessage,
 }) {
-  // const HanldeForgotPassword = () => {
-  //   Alert.alert(
-  //     'Nantikan Perkembangan FItur ini',
-  //     'Ini adalah fitur yang akan segera hadir di aplikasi kami.',
-  //     [
-  //       {
-  //         text: 'Ok',
-  //       },
-  //     ],
-  //     {
-  //       cancelable: false,
-  //     },
-  //   );
-  // };
-
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.body}>

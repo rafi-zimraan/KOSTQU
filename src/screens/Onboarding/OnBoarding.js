@@ -84,6 +84,9 @@ export default function OnBoarding({navigation, route}) {
         <View style={styles.buttonWrapper}>
           <ButtonAction
             title={step == 1 ? 'Next' : 'Mulai Sekarang '}
+            width={290}
+            color={colors.white}
+            borderRadius={10}
             onPress={onButtonPress}
           />
           {/* <ButtonCustom

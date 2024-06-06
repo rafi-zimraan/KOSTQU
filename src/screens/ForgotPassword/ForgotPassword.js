@@ -35,7 +35,7 @@ export default function ForgotPassword({navigation}) {
             style={{height: 296, width: '100%'}}
           />
         </View>
-        <View style={{padding: 15}}>
+        <View style={{padding: 20}}>
           <Text style={styles.txtTitle}>Reset Password</Text>
           <Gap height={15} />
           <Text style={styles.txtDes}>
@@ -57,6 +57,9 @@ export default function ForgotPassword({navigation}) {
         <ButtonAction
           title="Send"
           onPress={() => navigation.replace('ResetPassword')}
+          width={'90%'}
+          borderRadius={50 / 2}
+          color={colors.white}
         />
       </ScrollView>
     </KeyboardAvoidingView>

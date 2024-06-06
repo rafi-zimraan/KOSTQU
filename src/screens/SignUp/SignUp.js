@@ -116,6 +116,9 @@ export default function SignUp({navigation}) {
               <ButtonAction
                 title="SIgn Up"
                 onPress={() => navigation.replace('SuccesScreenSignUp')}
+                width={'90%'}
+                borderRadius={50 / 2}
+                color={colors.white}
               />
               <Gap height={20} />
               <Text style={styles.text}>

@@ -10,7 +10,7 @@ export default function App() {
     <Provider store={store}>
       <NavigationContainer
         onReady={() => {
-          BootSplash.hide({hide: true});
+          BootSplash.hide({fade: true});
         }}>
         <Navigator />
       </NavigationContainer>

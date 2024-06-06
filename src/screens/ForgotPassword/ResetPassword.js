@@ -64,9 +64,12 @@ export default function ResetPassword({navigation}) {
           <ButtonAction
             title="Reset Password"
             onPress={() => navigation.replace('SuccesScreen')}
+            width={'90%'}
+            borderRadius={50 / 2}
+            color={colors.white}
           />
         </View>
-        <Gap height={5} />
+        <Gap height={10} />
       </ScrollView>
     </KeyboardAvoidingView>
   );
@@ -81,7 +84,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   formContainer: {
-    padding: 15,
+    padding: 20,
   },
   image: {
     height: 296,
