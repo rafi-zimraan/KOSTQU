@@ -12,15 +12,11 @@ export default function Splash({navigation}) {
 
   const checkUserStatus = async () => {
     try {
-      const isFirstTime = await AsyncStorage.getItem('isFirstTime');
+      const onBoarding = await AsyncStorage.getItem('is_boarding');
       setTimeout(async () => {
-        if (isFirstTime === null) {
-          // Jika pengguna masuk pertama kali, arahkan ke OnBoarding
+        if (!onBoarding) {
           navigation.replace('OnBoarding');
-          // Set status pengguna agar tidak masuk lagi ke OnBoarding di masa depan
-          await AsyncStorage.setItem('isFirstTime', 'false');
         } else {
-          // Jika pengguna bukan masuk pertama kali, arahkan ke SignIn
           navigation.replace('SignIn');
         }
       }, 3000);

@@ -1,3 +1,4 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, {useState} from 'react';
 import {
   Image,
@@ -14,18 +15,45 @@ import {colors} from '../../utils';
 export default function OnBoarding({navigation, route}) {
   const [step, setStep] = useState(1);
 
-  const onButtonPress = () => {
-    setStep(step + 1);
-    if (step == 2) navigation.replace('SignIn');
+  const handelSkip = async () => {
+    try {
+      await AsyncStorage.setItem('is_boarding', 'true');
+      navigation.replace('SignIn');
+    } catch (error) {
+      console.log('error saving onboarding status', error);
+    }
   };
 
-  const onButtonSkipPress = () => navigation.replace('SignIn');
+  const handleNext = async () => {
+    if (step < 2) {
+      setStep(step + 1);
+    } else {
+      try {
+        await AsyncStorage.setItem('is_boarding', 'true');
+        navigation.replace('SignIn');
+      } catch (error) {
+        console.log('error  saving onboarding status', error);
+      }
+    }
+  };
+
+  // useEffect(() => {
+  //   async function handleOnBoarding() {
+  //     try {
+  //       await AsyncStorage.setItem('is_boarding', 'boarding');
+  //       navigation.replace('SignIn');
+  //     } catch (error) {
+  //       console.log('error', error);
+  //     }
+  //   }
+  //   handleOnBoarding();
+  // }, []);
 
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.body}>
         <View style={styles.content}>
-          <TouchableOpacity style={styles.header} onPress={onButtonSkipPress}>
+          <TouchableOpacity style={styles.header} onPress={handelSkip}>
             <Text style={styles.textSkip}>Skip</Text>
           </TouchableOpacity>
           {/* Banner1 */}
@@ -87,7 +115,7 @@ export default function OnBoarding({navigation, route}) {
             width={290}
             color={colors.white}
             borderRadius={10}
-            onPress={onButtonPress}
+            onPress={handleNext}
           />
           {/* <ButtonCustom
             title={step == 1 ? 'Next' : 'Mulai Sekarang Juga!'}

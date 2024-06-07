@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import React, {useEffect, useState} from 'react';
 import {useForm} from 'react-hook-form';
 import {
   Image,
@@ -23,24 +24,53 @@ export default function SignIn({navigation}) {
   } = useForm();
   const [loading, setLoading] = useState(false);
 
-  const onSubmit = data => {
-    // Simulasikan proses autentikasi di sini
-    // Anda dapat mengganti bagian ini dengan autentikasi sesungguhnya
-    const {email, password} = data;
+  useEffect(() => {
+    checkStorageCredentials();
+  }, []);
 
-    // Contoh: validasi autentikasi
-    if (email === 'admin@example.com' && password === 'admin') {
+  const checkStorageCredentials = async () => {
+    try {
+      const storedCredential = await AsyncStorage.getItem('user_credential');
+      if (storedCredential) {
+        const {email} = JSON.parse(storedCredential);
+        navigationToDasboard(email);
+      }
+    } catch (error) {
+      console.log('Failed to fetch the credential from storage', error);
+    }
+  };
+
+  const navigationToDasboard = email => {
+    if (email === 'admin@example.com') {
       navigation.navigate('BottomTabAdmin');
-    } else if (
-      email === 'superadmin@example.com' &&
-      password === 'superadmin'
-    ) {
+    } else if (email === 'superadmin@example.com') {
       navigation.navigate('BottomTabSuperAdmin');
     } else {
       navigation.navigate('MainNavigator');
     }
+  };
 
-    console.log(data);
+  const handleLogin = async data => {
+    const {email, password} = data;
+    setLoading(true);
+    try {
+      await new Promise(resolve => setTimeout(resolve, 1000));
+
+      if (
+        (email === 'admin@example.com' && password === 'admin') ||
+        (email === 'superadmin@example.com' && password === 'superadmin') ||
+        password === 'userpassword' // Example condition for regular users
+      ) {
+        await AsyncStorage.setItem('user_credential', JSON.stringify(data));
+        navigationToDasboard(email);
+      } else {
+        console.log('Invalid credentials');
+      }
+    } catch (error) {
+      console.error('Login error', error);
+    } finally {
+      setLoading(false);
+    }
   };
   return (
     <KeyboardAvoidingView
@@ -82,7 +112,7 @@ export default function SignIn({navigation}) {
         {/* Button Login */}
         <ButtonAction
           title={loading ? 'Loading..' : 'Login'}
-          onPress={handleSubmit(onSubmit)}
+          onPress={handleSubmit(handleLogin)}
           width={'80%'}
           borderRadius={50 / 2}
           color={colors.white}

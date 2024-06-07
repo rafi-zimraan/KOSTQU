@@ -8,7 +8,6 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {Gap} from '../../components';
-import {DataJelajah} from '../../features/Jelajah';
 import {colors} from '../../utils';
 
 export default function Jelajah({navigation}) {
@@ -29,7 +28,7 @@ export default function Jelajah({navigation}) {
           </TouchableNativeFeedback>
         </View>
       </View>
-      <DataJelajah />
+      {/* <DataJelajah /> */}
     </View>
   );
 }
