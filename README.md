@@ -1,5 +1,13 @@
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
+# Image Application
+![alt text](https://github.com/rafi-zimraan/KOSTQU/blob/main/src/assets/images/LoginKos.png).
+![alt text](https://github.com/rafi-zimraan/KOSTQU/blob/main/src/assets/images/DasboardKos.png).
+![alt text](https://github.com/rafi-zimraan/KOSTQU/blob/main/src/assets/images/FavoriteKos.png).
+![alt text](https://github.com/rafi-zimraan/KOSTQU/blob/main/src/assets/images/PencarianKos.png).
+![alt text](https://github.com/rafi-zimraan/KOSTQU/blob/main/src/assets/images/ReelsKos.png).
+
+
 # Getting Started
 
 >**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
