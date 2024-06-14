@@ -53,7 +53,6 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.Dongker,
     height: 72,
-    // top: 32,
     paddingHorizontal: 10,
   },
 });

@@ -13,7 +13,6 @@ import {
   HomeSuperAdmin,
   Jelajah,
   Kost,
-  LibDemo,
   OnBoarding,
   Profile,
   ProfileAdmin,
@@ -201,7 +200,7 @@ export default function Navigator() {
         statusBarTranslucent: true,
       }}
       initialRouteName={initialRouteName}>
-      <Stack.Screen name="LibDemo" component={LibDemo} />
+      {/* <Stack.Screen name="LibDemo" component={LibDemo} /> */}
       <Stack.Screen name="SplashScreen" component={Splash} />
       <Stack.Screen name="OnBoarding" component={OnBoarding} />
       <Stack.Screen name="SignIn" component={SignIn} />
