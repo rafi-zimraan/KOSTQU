@@ -55,7 +55,6 @@ const images = {
   Img_Itb: require('.//images/itb.png'),
   Img_Ui: require('.//images/ui.png'),
   Img_Pengunungan: require('.//images/ImgPegunungan.jpg'),
-  Img_JalanRaya: require('.//images/ImgJalanRaya.png'),
 };
 
 const VIDEO = {
