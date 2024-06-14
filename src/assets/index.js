@@ -58,4 +58,11 @@ const images = {
   Img_JalanRaya: require('.//images/ImgJalanRaya.png'),
 };
 
-export {fonts, images, icons};
+const VIDEO = {
+  VideoFootball: require('.//video/ReelsFoottbaal.mp4'),
+  VideoMom: require('.//video/ReelsMom.mp4'),
+  VideoMotivation: require('.//video/ReelsMotivation.mp4'),
+  ImgMoiuntain: require('.//video/ReelsMountain.jpg'),
+};
+
+export {VIDEO, fonts, images, icons};

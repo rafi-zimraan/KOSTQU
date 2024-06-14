@@ -191,7 +191,7 @@ function Main() {
 }
 
 export default function Navigator() {
-  const [initialRouteName, setInitialRouteName] = useState('SplashScreen');
+  const [initialRouteName, setInitialRouteName] = useState('LibDemo');
 
   return (
     <Stack.Navigator
